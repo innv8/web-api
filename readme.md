@@ -4,10 +4,11 @@
 
 [Explanation to MVC](https://github.com/innv8/api-introduction#lesson-2--mvc)
 
+---
 
 This API will help us manage a list of users in a database.
 
-1. Creating a database and a users table
+### 1. Creating a database and a users table
 
 user table
 
@@ -19,7 +20,7 @@ user table
 - created datetime (default current_timestamp)
 - updated datetime (default null but on update, current_timestamp)
 
-2. Creating an API that interacts with that table.
+### 2. Creating an API that interacts with that table.
 
 Endpoints
 
@@ -37,6 +38,7 @@ TODO :  6. /users/3     [DELETE]    - Delete the user
 
 
 
---- Resources
+---
+## Resources
 
 [Time](https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go)

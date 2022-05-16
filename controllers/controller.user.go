@@ -30,3 +30,15 @@ func (b *Base) CreateUserController(w http.ResponseWriter, r *http.Request) {
 
 	middleware.JSONResponse(w, http.StatusCreated, "user created")
 }
+
+func (b *Base) ListUsers(w http.ResponseWriter, r *http.Request) {
+	// check if there is data in the first_name url key
+	urlValues := r.URL.Query()
+	var firstName = urlValues.Get("first_name")
+	users, err := models.ListUsers(firstName, b.DB)
+	if err != nil {
+		middleware.JSONResponse(w, http.StatusBadRequest, "unable to list users")
+		return
+	}
+	middleware.JSONResponse(w, http.StatusOK, users)
+}
