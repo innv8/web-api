@@ -28,7 +28,7 @@ DONE :  1. /            [*]         - print "welcome home"
 
 DONE :  2. /user        [POST]      - create a new user
 
-TODO :  3. /users       [GET]       - list all users/ search a user
+DONE :  3. /users       [GET]       - list all users/ search a user
 
 TODO :  4. /users/3     [GET]       - return one user or 404 if the user is not in db
 
@@ -42,3 +42,5 @@ TODO :  6. /users/3     [DELETE]    - Delete the user
 ## Resources
 
 [Time](https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go)
+
+[Regex validator](https://regex101.com/)

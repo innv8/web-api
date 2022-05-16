@@ -33,7 +33,6 @@ func ListUsers(firstName string, db *sql.DB) (users []entities.User, err error) 
 	if firstName != "" {
 		query += " WHERE first_name LIKE '%" + firstName + "%'"
 	}
-	log.Println(query)
 
 	rows, err := db.Query(query)
 	if err != nil {
@@ -54,4 +53,46 @@ func ListUsers(firstName string, db *sql.DB) (users []entities.User, err error) 
 	}
 	log.Printf("got %d users from the db", len(users))
 	return users, nil
+}
+
+func GetUser(idInt int, db *sql.DB) (user entities.User, err error) {
+	var _updated sql.NullString
+	var query = `SELECT id, first_name, last_name, phone_number, date_of_birth, created, updated 
+	FROM user WHERE id=? LIMIT 1`
+	err = db.QueryRow(query, idInt).Scan(
+		&user.ID, &user.FirstName, &user.LastName, &user.PhoneNumber, &user.DateOfBirth,
+		&user.Created, &_updated,
+	)
+	if err != nil {
+		log.Printf("unable to fetch user %d because %v", idInt, err)
+		return
+	}
+	log.Printf("returning user %d to client", idInt)
+	return
+}
+
+func UpdateUser(idInt int, data entities.User, db *sql.DB) (err error) {
+	var query = `UPDATE user SET first_name=?, last_name=?, phone_number=?, date_of_birth=?
+		WHERE id=?`
+	rows, err := db.Exec(query, data.FirstName, data.LastName, data.PhoneNumber, data.DateOfBirth, idInt)
+	if err != nil {
+		log.Printf("unable to update user %d because %v", idInt, err)
+		return
+	}
+
+	rowsUpdated, _ := rows.RowsAffected()
+	log.Printf("%d rows updated in db", rowsUpdated)
+	return
+}
+
+func DeleteUser(idInt int, db *sql.DB) (err error) {
+	var query = "DELETE FROM user WHERE id=?"
+	rows, err := db.Exec(query, idInt)
+	if err != nil {
+		log.Printf("unable to delete user %d because %v", idInt, err)
+		return err
+	}
+	rowsDeleted, _ := rows.RowsAffected()
+	log.Printf("%d rows deleted in db", rowsDeleted)
+	return nil
 }
