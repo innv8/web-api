@@ -1,5 +1,8 @@
 # WEB API - LESSON
 
+[ Link to repo](https://github.com/innv8/web-api)
+
+
 This API will help us manage a list of users in a database.
 
 1. Creating a database and a users table
@@ -11,8 +14,8 @@ user table
 - last_name string
 - phone_number string unique
 - date_of_birth date
-- created datetime (default now)
-- updated datetime (default null but on update, now())
+- created datetime (default current_timestamp)
+- updated datetime (default null but on update, current_timestamp)
 
 2. Creating an API that interacts with that table.
 
