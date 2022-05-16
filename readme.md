@@ -30,11 +30,11 @@ DONE :  2. /user        [POST]      - create a new user
 
 DONE :  3. /users       [GET]       - list all users/ search a user
 
-TODO :  4. /users/3     [GET]       - return one user or 404 if the user is not in db
+DONE :  4. /users/3     [GET]       - return one user or 404 if the user is not in db
 
-TODO :  5. /users/3     [PUT]       - update the details of user
+DONE :  5. /users/3     [PUT]       - update the details of user
 
-TODO :  6. /users/3     [DELETE]    - Delete the user
+DONE :  6. /users/3     [DELETE]    - Delete the user
 
 
 
@@ -44,3 +44,16 @@ TODO :  6. /users/3     [DELETE]    - Delete the user
 [Time](https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go)
 
 [Regex validator](https://regex101.com/)
+
+---
+## Topics in the Advanced Web API
+
+- Regexes in urls
+
+- Validating payload from client
+
+- Caching
+
+- OAuth2
+
+- Deploying on Sever
