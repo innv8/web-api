@@ -2,6 +2,8 @@
 
 [ Link to repo](https://github.com/innv8/web-api)
 
+[Explanation to MVC](https://github.com/innv8/api-introduction#lesson-2--mvc)
+
 
 This API will help us manage a list of users in a database.
 
@@ -27,3 +29,8 @@ Endpoints
 3. /users/3     [GET]       - return one user or 404 if the user is not in db
 4. /users/3     [PUT]       - update the details of user
 5. /users/3     [DELETE]    - Delete the user
+
+
+--- Resources
+
+[Time](https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go)
